@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 47c394212df93dfe2399abff2e9ef0344613e2d95485e4a3a3a8f849f3b2ebb2
+-- hash: b693cf23cf50eaf18d05acf9894b702598f902901420ecf542a11b4342eda6d4
 
 name:           haskell-kie
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      IORefKie
       Lib
   other-modules:
       Paths_haskell_kie
