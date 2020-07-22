@@ -4,9 +4,9 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b693cf23cf50eaf18d05acf9894b702598f902901420ecf542a11b4342eda6d4
+-- hash: d0572e8fa76b8b91b4e23126241611c9a0118961773ed6def56c4ca7d28f67cd
 
-name:           haskell-kie
+name:           haskell-kie-x
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/githubuser/haskell-kie#readme>
 homepage:       https://github.com/githubuser/haskell-kie#readme
@@ -29,35 +29,42 @@ library
   exposed-modules:
       IORefKie
       Lib
+      StateKie
   other-modules:
-      Paths_haskell_kie
+      Paths_haskell_kie_x
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , mtl
+    , random
   default-language: Haskell2010
 
-executable haskell-kie-exe
+executable haskell-kie-x-exe
   main-is: Main.hs
   other-modules:
-      Paths_haskell_kie
+      Paths_haskell_kie_x
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
-    , haskell-kie
+    , haskell-kie-x
+    , mtl
+    , random
   default-language: Haskell2010
 
-test-suite haskell-kie-test
+test-suite haskell-kie-x-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_haskell_kie
+      Paths_haskell_kie_x
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , haskell-kie
+    , mtl
+    , random
   default-language: Haskell2010

@@ -1,4 +1,4 @@
-name:                haskell-kie
+name:                haskell-kie-x
 version:             0.1.0.0
 github:              "githubuser/haskell-kie"
 license:             BSD3
@@ -21,12 +21,14 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- mtl
+- random
 
 library:
   source-dirs: src
 
 executables:
-  haskell-kie-exe:
+  haskell-kie-x-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -34,10 +36,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - haskell-kie
+    - haskell-kie-x
 
 tests:
-  haskell-kie-test:
+  haskell-kie-x-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:

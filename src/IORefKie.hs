@@ -4,7 +4,6 @@ module IORefKie (
 
 import Data.IORef
 
-
 --readAndWrite
 readAndWrite = do
     mutable <- newIORef 0
