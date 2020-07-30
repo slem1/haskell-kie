@@ -4,6 +4,8 @@ module ConcurrencyKie (
 
 import Network.Socket
 import Control.Monad
+import Control.Concurrent.MVar
+import Control.Concurrent
 
 addr = SockAddrInet 8080 $ tupleToHostAddress (127, 0, 0, 1)
 
@@ -19,18 +21,28 @@ initSocket = do
     return sock
 
 acceptConnections :: Socket -> IO ()
-acceptConnections socket = forever' $ acceptConnection socket
+acceptConnections socket = do
+    count <- newEmptyMVar
+    putMVar count 0
+    forever $ do 
+        (csock, caddr) <- accept socket
+        forkIO (serveConnection csock count)
 
-acceptConnection :: Socket -> IO ()
-acceptConnection socket = do 
-    (csock, caddr) <- accept socket
-    putStrLn $ show caddr
-    close csock
-    
+serveConnection :: Socket -> MVar Int -> IO ()
+serveConnection socket count = do     
+    increment count    
+    putStrLn " (sleep 5s)"
+    threadDelay 5000000
+    close socket
+    decrement count
 
+increment :: MVar Int -> IO ()
+increment count = do 
+    value <- takeMVar count 
+    putMVar count (value+1)
 
-forever' :: IO a -> IO ()
-forever' action = do
-    result <- action
-    forever' action
+decrement :: MVar Int -> IO ()
+decrement count = do 
+    value <- takeMVar count 
+    putMVar count (value-1)
 
