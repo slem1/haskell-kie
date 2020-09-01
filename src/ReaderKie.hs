@@ -5,7 +5,7 @@ module ReaderKie (
 -- import Control.Monad.Reader
 
 
-data Environment = Environment { 
+newtype Environment = Environment { 
     url :: String    
 }
 
