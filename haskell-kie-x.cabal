@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a6c36a97f81b6027149769ee40bb508cda066e7c393612e765b539f10e816af6
+-- hash: b8f813c6c9634aba587bade2b8c208fb22c173492cf9afbf3276897655cd4f3e
 
 name:           haskell-kie-x
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Channel
       ConcurrencyKie
       IORefKie
       Lib
