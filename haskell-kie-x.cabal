@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b8f813c6c9634aba587bade2b8c208fb22c173492cf9afbf3276897655cd4f3e
+-- hash: db5b2578be95070f7b9244dbd554cb1a985d67a2ee262e7f04da2afe14f8c876
 
 name:           haskell-kie-x
 version:        0.1.0.0
@@ -31,6 +31,7 @@ library
       ConcurrencyKie
       IORefKie
       Lib
+      Polymorphism
       ReaderKie
       StateKie
   other-modules:
@@ -39,6 +40,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , hspec
     , mtl
     , network
     , random
@@ -54,6 +56,7 @@ executable haskell-kie-x-exe
   build-depends:
       base >=4.7 && <5
     , haskell-kie-x
+    , hspec
     , mtl
     , network
     , random
@@ -63,13 +66,15 @@ test-suite haskell-kie-x-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      PolymorphismSpec
       Paths_haskell_kie_x
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
-    , haskell-kie
+    , haskell-kie-x
+    , hspec
     , mtl
     , network
     , random

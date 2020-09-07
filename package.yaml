@@ -24,6 +24,7 @@ dependencies:
 - mtl
 - random
 - network
+- hspec
 
 library:
   source-dirs: src
@@ -48,4 +49,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - haskell-kie
+    - haskell-kie-x
