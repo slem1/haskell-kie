@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: db5b2578be95070f7b9244dbd554cb1a985d67a2ee262e7f04da2afe14f8c876
+-- hash: b945973e6400f5d9c3448c3398e27e053d160a278e8f9696aa116d87eef4af23
 
 name:           haskell-kie-x
 version:        0.1.0.0
@@ -29,10 +29,12 @@ library
   exposed-modules:
       Channel
       ConcurrencyKie
+      FoldIt
       IORefKie
       Lib
       Polymorphism
       ReaderKie
+      Record
       StateKie
   other-modules:
       Paths_haskell_kie_x

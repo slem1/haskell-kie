@@ -1,5 +1,7 @@
 module Polymorphism (
-    elemInt, printEqResult
+    elemInt, 
+    printEqResult,
+    List(..)
 ) where
 
 
@@ -28,3 +30,17 @@ value2 :: IntList
 value2 = Nil
 
 printEqResult = print (value1 == value1, value2 == value2, not (value1 == value2))
+
+data List a = Empty | ConsLst a (List a)
+
+instance Show a => Show (List a) where    
+    show xs = "{" ++ show_ xs  ++ "}"
+
+show_ :: Show a => (List a) -> String
+show_ Empty = ""
+show_ (ConsLst x Empty) = show x
+show_ (ConsLst x xs) = show x ++ "," ++ show_ xs
+
+    
+
+
