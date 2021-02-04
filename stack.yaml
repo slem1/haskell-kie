@@ -43,6 +43,11 @@ extra-deps:
   - mtl-2.2.2
   - network-3.1.1.1
   - hspec-2.7.1
+  - wai-3.2.2.1
+  - warp-3.3.10
+  - regex-posix-clib-2.7 
+  - http-types-0.12.3
+
 
 # Override default flag values for local packages and extra-deps
 flags: 

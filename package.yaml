@@ -25,6 +25,10 @@ dependencies:
 - random
 - network
 - hspec
+- wai
+- warp
+- regex-posix-clib
+- http-types
 
 library:
   source-dirs: src
