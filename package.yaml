@@ -29,6 +29,7 @@ dependencies:
 - warp
 - regex-posix-clib
 - http-types
+- bytestring
 
 library:
   source-dirs: src
