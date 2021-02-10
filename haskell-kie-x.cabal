@@ -49,6 +49,7 @@ library
     , random
     , regex-posix-clib
     , wai
+    , wai-extra
     , warp
   default-language: Haskell2010
 
@@ -70,6 +71,7 @@ executable haskell-kie-x-exe
     , random
     , regex-posix-clib
     , wai
+    , wai-extra
     , warp
   default-language: Haskell2010
 
@@ -93,5 +95,6 @@ test-suite haskell-kie-x-test
     , random
     , regex-posix-clib
     , wai
+    , wai-extra
     , warp
   default-language: Haskell2010

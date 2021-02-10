@@ -12,10 +12,16 @@ import Network.HTTP.Types.Header
 import Network.Wai.Handler.Warp
 import Data.List
 import qualified Data.ByteString as BS
+import Network.Wai.Middleware.HttpAuth
 
 import Data.Monoid (mconcat)
 
-runWebApp = run 3000 $ addLog $ jwtInterceptor $ addJsonContentType $ serve200Application    
+authLoginPath = "/auth/login"
+anonymousPaths = [authLoginPath]
+response401 = responseLBS status401 [] "{ \"message\" : \"access denied\" }"
+
+runWebApp = run 3000 $ addLog $ jwtInterceptor $ basicAuthInterceptor $ addJsonContentType $ serve200Application    
+
 
 serve200Application :: Application
 serve200Application request responseFn = 
@@ -54,11 +60,11 @@ jwtProtectedMiddleware token baseApp request responseFn =
         _ -> responseFn response401
 
 
-anonymousPaths = ["/auth/login"]
-
-response401 = responseLBS status401 [] "{ \"message\" : \"access denied\" }"
-
-
+basicAuthInterceptor :: Middleware
+basicAuthInterceptor = basicAuth (\u p -> return $ u == "michael" && p == "mypass") basicAuthSettings
+    where
+        basicAuthSettings = "My Realm" { authIsProtected = isProtected }    
+        isProtected request = return $ rawPathInfo request == authLoginPath 
 
 
 -- myMiddleware :: Middleware

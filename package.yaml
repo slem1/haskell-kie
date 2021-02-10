@@ -30,6 +30,7 @@ dependencies:
 - regex-posix-clib
 - http-types
 - bytestring
+- wai-extra
 
 library:
   source-dirs: src
